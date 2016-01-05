@@ -1,0 +1,49 @@
+{
+  "name": "generator-react-isomorphic",
+  "version": "1.0.0",
+  "repository": "Isomorphic React App",
+  "description": "Isomorphic React app generator for Wide Eyes",
+  "dependencies": {
+    "babel-core": "^6.3.26",
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "flux": "^2.1.1",
+    "jade": "^1.11.0",
+    "node-jsx": "^0.13.3",
+    "normalize.css": "^3.0.3",
+    "react": "^0.14.5",
+    "react-dom": "^0.14.5"
+  },
+  "devDependencies": {
+    "babel": "^6.3.26",
+    "babel-eslint": "^4.1.6",
+    "babel-loader": "^6.2.1",
+    "babel-plugin-react-transform": "^2.0.0",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "bluebird": "^3.1.1",
+    "del": "^2.2.0",
+    "eslint": "^1.10.3",
+    "eslint-config-airbnb": "*",
+    "eslint-loader": "^1.2.0",
+    "eslint-plugin-react": "^3.14.0",
+    "file-loader": "*",
+    "install": "^0.4.1",
+    "ncp": "^2.0.0",
+    "node-sass": "^3.4.2",
+    "npm": "^3.5.2",
+    "react-hot-loader": "^1.3.0",
+    "sass-loader": "^3.1.2",
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0"
+  },
+  "scripts": {
+    "test": "",
+    "build": "",
+    "deploy": "",
+    "start": "node tools/start"
+  },
+  "author": "GC",
+  "license": "ISC"
+}
