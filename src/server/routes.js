@@ -1,24 +1,28 @@
 import App from '../shared/components/App.jsx';
-// import NotFoundPage from '../shared/components/core/NotFoundPage/NotFoundPage.jsx';
+import PageNotFound from '../shared/components/core/PageNotFound/PageNotFound.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 
+const scriptSrc = process.env.DEBUG ? '/entry.js' : '/js/entry.js'
+const cssSrc = '/css/base.css'
 const title = 'React App Generator'
 
 export default(app) => {
   app.get('/', (req, res) => {
-    let ReactApp = ReactDOM.renderToString(< App />);
+    let ReactApp = ReactDOM.renderToString(<App />);
     res.render('index.jade', {
       content: ReactApp,
+      scriptSrc: scriptSrc,
       title: title
     });
   });
 
-  // app.get('*', function(req, res) {
-	// 	let ReactApp = ReactDOM.renderToString(<NotFoundPage />);
-  //   res.render('index.jade', {
-  //     content: ReactApp,
-  //     title: title
-  //   });
-  // });
+  app.get('*', function(req, res) {
+		let NotFound = ReactDOM.renderToString(<PageNotFound />);
+    res.render('PageNotFound.jade', {
+      content: NotFound,
+      cssSrc: cssSrc,
+      title: title
+    });
+  });
 };

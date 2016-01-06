@@ -1,17 +1,36 @@
 import bodyParser from 'body-parser';
+import config from '../../tools/webpack.config.dev.js';
 import express from 'express';
-import routes from './routes';
 import path from 'path';
+import routes from './routes';
+import webpack from 'webpack';
+import webpackDevMiddleware from 'webpack-dev-middleware';
 
-const app = express();
-const port = 3000;
+async function server() {
+  const app = express();
+  const compiler = webpack(config);
+  const port = 3000;
 
-app.use(bodyParser.json({limit: '50mb'}));
-app.use(express.static(path.join(__dirname, '../../public')));
-app.set('views', path.join(__dirname, '/views'));
-app.set('view engine', 'jade');
+  app.use(bodyParser.json({limit: '50mb'}));
+  app.use(express.static(path.join(__dirname, '../../build')));
+  app.use(webpackDevMiddleware(compiler, {
+    watchOptions: {
+      aggregateTimeout: 300,
+      poll: true
+    },
+    stats: {
+      colors: true
+    }
+  }));
 
-routes(app);
+  app.set('views', path.join(__dirname, '/views'));
+  app.set('view engine', 'jade');
 
-app.listen(port);
-console.log('Server is Up and Running at Port : ' + port);
+  routes(app);
+
+  await app.listen(port, function () {
+    console.log('Server is Up and Running at Port : ' + port);
+  });
+}
+
+export default server;

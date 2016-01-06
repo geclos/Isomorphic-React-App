@@ -1,11 +1,10 @@
-import './NotFound.scss';
 import React from 'react';
 
 const NotFound = () =>
-  <section className="container">
-    <header className="v-center">
-      <h1>Page Not Found</h1>
-      <h3>
+  <section className="NotFound container h-center">
+    <header className="v-center text-center">
+      <h1>Page Not</h1>
+      <h3 className="text-muted">
         The page you were looking for is not here. <a href="/">Go home &rarr;.</a>
       </h3>
     </header>
