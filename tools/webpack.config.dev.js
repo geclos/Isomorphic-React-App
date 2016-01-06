@@ -5,10 +5,10 @@ console.log(__dirname);
 
 module.exports = {
   entry: [
-    './src/client/entry.js'
+    './src/client/app.js'
   ],
   output: {
-    filename: 'entry.js',
+    filename: 'app.js',
     path: path.join(__dirname, '../build/js/'),
     publicPath: '/js/'
   },

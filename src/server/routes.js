@@ -3,7 +3,7 @@ import PageNotFound from '../shared/components/core/PageNotFound/PageNotFound.js
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 
-const scriptSrc = process.env.DEBUG ? '/entry.js' : '/js/entry.js'
+const scriptSrc = process.env.DEBUG ? '/app.js' : '/js/app.js'
 const cssSrc = '/css/base.css'
 const title = 'React App Generator'
 
