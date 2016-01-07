@@ -8,6 +8,7 @@ Enjoy!
 
 ## TODO
 - Add build, and deploy scripts
-- Implement React router
+- ~~Implement React router~~
 - Add some more basic styling
-- Include a css framework??
+- ~~Include a css framework?? (not gonna happen)~~
+- ~~Added postCSS support~~
