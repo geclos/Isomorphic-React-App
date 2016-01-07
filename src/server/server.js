@@ -1,6 +1,7 @@
 import {RoutingContext, match} from 'react-router';
 import express from 'express';
 import Html from '../shared/components/Html.jsx';
+import PageNotFound from '../shared/components/PageNotFound/PageNotFound.jsx';
 import path from 'path';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
@@ -17,11 +18,20 @@ app.use((req, res) => {
     } else if (redirectLocation) {
       return res.redirect(302, redirectLocation.pathname + redirectLocation.search)
     } else if (!renderProps) {
-      return res.status(404).end('Not found.');
+      let data = {
+        title: 'Isomorphic React App',
+        script: '/js/client.js',
+        body: ReactDOM.renderToString(<PageNotFound />)
+      };
+
+      let html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
+
+      return res.status(404).send(html);
     }
 
     let data = {
       title: 'Isomorphic React App',
+      script: '/js/client.js',
       body: ReactDOM.renderToString(<RoutingContext {...renderProps}/>)
     };
 

@@ -68,7 +68,8 @@ const clientConfig = Object.assign({
   entry: './src/client/client.js',
   output: {
     filename: 'client.js',
-    path: path.join(__dirname, '../build/public')
+    path: path.join(__dirname, '../build/public/js'),
+    publicPath: '/js/'
   }
 }, generalConfig);
 

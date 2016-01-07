@@ -4,7 +4,5 @@ import Home from '../shared/components/Home/Home.jsx';
 import React from 'react';
 
 export default (
-  <Route path="/" component={App}>
-    <Route path="home" component={Home} />
-  </Route>
+  <Route path="/" component={Home} />
 );

@@ -6,10 +6,7 @@ import fs from 'fs';
  * output (build) folder.
  */
 async function copy({watch} = {}) {
-  const ncp = Promise.promisify(require('ncp'));
-  await Promise.all([
-    ncp('src/server/views', 'build/public')
-  ]);
+  // @TODO
 }
 
 export default copy;

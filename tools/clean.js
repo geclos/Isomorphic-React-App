@@ -6,8 +6,8 @@ import fs from 'fs';
  */
 async function clean() {
   await del(['build/*'], { dot: true });
-  await fs.stat('build', function (err, stats) {
-    if (err) fs.mkdir('build');
+  await fs.stat('build/public', function (err, stats) {
+    if (err) fs.mkdir('build/public');
   })
 }
 

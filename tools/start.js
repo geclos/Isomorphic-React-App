@@ -3,9 +3,8 @@ import copy from './copy';
 import run from './run';
 import runServer from './runServer';
 import webpack from 'webpack';
-import webpackConfig from './webpack.config.dev.js';
+import webpackConfig from './webpack.config.dev';
 import webpackMiddleware from 'webpack-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
 
 
 async function start() {
@@ -15,11 +14,8 @@ async function start() {
   await new Promise(resolve => {
     const bundler = webpack(webpackConfig);
     const wpMiddleware = webpackMiddleware(bundler, {
-      // IMPORTANT: webpack middleware can't access config,
-      // so we should provide publicPath by ourselves
       publicPath: webpackConfig[0].output.publicPath,
-      // Pretty colored output
-      stats: webpackConfig[0].stats
+      stats: webpackConfig[1].stats
     });
 
     // const hotMiddlewares = bundler.compilers

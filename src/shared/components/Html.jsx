@@ -1,18 +1,11 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
 import React, { Component, PropTypes } from 'react';
+import '../styles/base.scss';
 
 class Html extends Component {
 
   static propTypes = {
     title: PropTypes.string,
+    script: PropTypes.string.isRequired,
     body: PropTypes.string.isRequired
   };
 
