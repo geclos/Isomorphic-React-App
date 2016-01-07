@@ -1,38 +1,7 @@
-/* main styles */
 html, body {
-  color: #333;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 400;
-  height: 100%;
   line-height: 1.5;
   margin: 0;
   padding: 0;
-}
-
-/* Page Not Found */
-.NotFound {
-  background: #efefef;
-}
-
-/* text helpers */
-.text-muted {
-  color: #888;
-}
-
-.text-center {
-  text-align: center;
-}
-
-/* grid helpers */
-.container {
-  display: flex;
-  height: 100%;
-}
-
-.h-center {
-  justify-content: center;
-}
-
-.v-center {
-  align-self: center;
 }

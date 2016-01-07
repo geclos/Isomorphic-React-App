@@ -1,33 +1,94 @@
-var path = require('path');
-var webpack = require('webpack');
+import path from 'path';
+import webpack from 'webpack';
 
-console.log(__dirname);
+const DEBUG = !process.argv.includes('--release');
+const VERBOSE = process.argv.includes('--verbose');
+const GLOBALS = {
+  'process.env.NODE_ENV': DEBUG ? '"development"' : '"production"',
+  __DEV__: DEBUG,
+};
 
-module.exports = {
-  entry: [
-    './src/client/app.js'
-  ],
-  output: {
-    filename: 'app.js',
-    path: path.join(__dirname, '../build/js/'),
-    publicPath: '/js/'
-  },
+const generalConfig = {
   resolve: {
-    modulesDirectories: ['node_modules', 'shared'],
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx', '.json']
   },
+
   module: {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
       loaders: ['react-hot', 'babel']
     }, {
-      test: /\.scss$|\.css$/,
-      loaders: ["style", "css", "sass"]
+      test: /\.css$|\.scss$/,
+      loaders: [
+        'isomorphic-style-loader',
+        'css-loader?modules&localIdentName=[name]_[local]_[hash:base64:3]',
+        'postcss-loader'
+      ]
+    }, {
+      test: /\.json$/,
+      loader: 'json-loader',
+    }, {
+      test: /\.txt$/,
+      loader: 'raw-loader',
+    }, {
+      test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|otf)$/,
+      loader: 'url-loader?limit=10000',
+    }, {
+      test: /\.(eot|ttf|wav|mp3)$/,
+      loader: 'file-loader',
     }]
   },
+
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
+    // new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.NoErrorsPlugin()
-  ]
+  ],
+
+  stats: {
+    colors: true,
+    reasons: DEBUG,
+    hash: VERBOSE,
+    version: VERBOSE,
+    timings: true,
+    chunks: VERBOSE,
+    chunkModules: VERBOSE,
+    cached: VERBOSE,
+    cachedAssets: VERBOSE,
+  },
+
+  postcss: function() {
+    return [require('autoprefixer'), require('precss')];
+  },
 };
+
+// CLIENT CONFIG
+const clientConfig = Object.assign({
+  entry: './src/client/client.js',
+  output: {
+    filename: 'client.js',
+    path: path.join(__dirname, '../build/public')
+  }
+}, generalConfig);
+
+// SERVER CONFIG
+const serverConfig = Object.assign({
+  entry: './src/server/server.js',
+  output: {
+    filename: 'server.js',
+    libraryTarget: 'commonjs2',
+    path: path.join(__dirname, '../build')
+  },
+  target: 'node',
+  node: {
+    console: false,
+    global: false,
+    process: false,
+    Buffer: false,
+    __filename: false,
+    __dirname: false,
+  }
+}, generalConfig);
+
+export default [clientConfig, serverConfig];

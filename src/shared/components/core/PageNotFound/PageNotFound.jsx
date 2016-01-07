@@ -1,7 +1,8 @@
 import React from 'react';
+import './PageNotFound.scss';
 
-const NotFound = () =>
-  <section className="NotFound container h-center">
+const PageNotFound = () =>
+  <section className="PageNotFound container h-center">
     <header className="v-center text-center">
       <h1>Page Not</h1>
       <h3 className="text-muted">
@@ -10,4 +11,4 @@ const NotFound = () =>
     </header>
   </section>
 
-export default NotFound
+export default PageNotFound

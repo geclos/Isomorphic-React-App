@@ -1,36 +1,50 @@
-import bodyParser from 'body-parser';
-import config from '../../tools/webpack.config.dev.js';
+import {RoutingContext, match} from 'react-router';
 import express from 'express';
+import Html from '../shared/components/Html.jsx';
 import path from 'path';
+import React from 'react';
+import ReactDOM from 'react-dom/server';
 import routes from './routes';
-import webpack from 'webpack';
-import webpackDevMiddleware from 'webpack-dev-middleware';
 
-async function server() {
-  const app = express();
-  const compiler = webpack(config);
-  const port = 3000;
+const app = express();
+const port = 3000;
 
-  app.use(bodyParser.json({limit: '50mb'}));
-  app.use(express.static(path.join(__dirname, '../../build')));
-  app.use(webpackDevMiddleware(compiler, {
-    watchOptions: {
-      aggregateTimeout: 300,
-      poll: true
-    },
-    stats: {
-      colors: true
+app.use(express.static(path.join(__dirname, 'public')));
+app.use((req, res) => {
+  match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
+    if (err) {
+      return res.status(500).end('Internal server error');
+    } else if (redirectLocation) {
+      return res.redirect(302, redirectLocation.pathname + redirectLocation.search)
+    } else if (!renderProps) {
+      return res.status(404).end('Not found.');
     }
-  }));
 
-  app.set('views', path.join(__dirname, '/views'));
-  app.set('view engine', 'jade');
+    let data = {
+      title: 'Isomorphic React App',
+      body: ReactDOM.renderToString(<RoutingContext {...renderProps}/>)
+    };
 
-  routes(app);
+    let html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
 
-  await app.listen(port, function () {
-    console.log('Server is Up and Running at Port : ' + port);
+    res.status(200).send('<!doctype html>\n' + html)
   });
-}
+});
 
-export default server;
+let server = app.listen(port, () => {
+  console.log(`The server is running at http://localhost`, port);
+});
+
+// Close server on error
+process.on('uncaughtException', (err) => {
+  if (server)
+    server.close();
+  }
+)
+
+// Close server when process is terminated
+process.on('exit', () => {
+  if (server)
+    server.close();
+  }
+);

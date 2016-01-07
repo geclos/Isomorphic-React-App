@@ -1,7 +1,9 @@
+
 doctype html
 html(lang="en")
   head
     title= title
-    script(src= scriptSrc, defer)
+    link(href= css, rel='stylesheet')
+    script(src= script, defer)
   body
     #ReactApp!= content

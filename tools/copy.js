@@ -1,4 +1,5 @@
 import Promise from 'bluebird';
+import fs from 'fs';
 
 /**
  * Copies static files such as robots.txt, favicon.ico to the
@@ -7,7 +8,7 @@ import Promise from 'bluebird';
 async function copy({watch} = {}) {
   const ncp = Promise.promisify(require('ncp'));
   await Promise.all([
-    ncp('src/shared/styles', 'build/css'),
+    ncp('src/server/views', 'build/public')
   ]);
 }
 
