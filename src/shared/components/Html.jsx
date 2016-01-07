@@ -1,11 +1,12 @@
 import React, { Component, PropTypes } from 'react';
-import '../styles/base.scss';
+import n from 'normalize.css';
+import s from '../styles/base.scss';
 
 class Html extends Component {
 
   static propTypes = {
-    title: PropTypes.string,
-    script: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    script: PropTypes.string,
     body: PropTypes.string.isRequired
   };
 
@@ -32,6 +33,7 @@ class Html extends Component {
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <title>{this.props.title}</title>
+        <link href={this.props.style} rel="stylesheet" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body>

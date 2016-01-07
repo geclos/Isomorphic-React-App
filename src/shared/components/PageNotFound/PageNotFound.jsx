@@ -1,8 +1,8 @@
 import React from 'react';
-import './PageNotFound.scss';
+import s from './PageNotFound.scss';
 
 const PageNotFound = () =>
-  <section className="PageNotFound container h-center">
+  <section className=" h-center container">
     <header className="v-center text-center">
       <h1>Page Not</h1>
       <h3 className="text-muted">

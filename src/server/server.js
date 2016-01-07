@@ -9,6 +9,9 @@ import routes from './routes';
 
 const app = express();
 const port = 3000;
+const staticProps = {
+  title: 'Isomorphic React App'
+}
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use((req, res) => {
@@ -18,22 +21,19 @@ app.use((req, res) => {
     } else if (redirectLocation) {
       return res.redirect(302, redirectLocation.pathname + redirectLocation.search)
     } else if (!renderProps) {
-      let data = {
-        title: 'Isomorphic React App',
-        script: '/js/client.js',
+      let data = Object.assign({
         body: ReactDOM.renderToString(<PageNotFound />)
-      };
+      }, staticProps);
 
       let html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
 
       return res.status(404).send(html);
     }
 
-    let data = {
-      title: 'Isomorphic React App',
+    let data = Object.assign({
       script: '/js/client.js',
       body: ReactDOM.renderToString(<RoutingContext {...renderProps}/>)
-    };
+    }, staticProps);
 
     let html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
 
