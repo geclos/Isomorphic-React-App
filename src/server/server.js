@@ -15,18 +15,14 @@ const staticProps = {
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use((req, res) => {
-  match({ routes, location: req.url }, (err, redirectLocation, renderProps) => {
+  match({ routes, location: req.url}, (err, redirectLocation, renderProps) => {
     if (err) {
       return res.status(500).end('Internal server error');
     } else if (redirectLocation) {
       return res.redirect(302, redirectLocation.pathname + redirectLocation.search)
     } else if (!renderProps) {
-      let data = Object.assign({
-        body: ReactDOM.renderToString(<PageNotFound />)
-      }, staticProps);
-
-      let html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
-
+      let data = Object.assign({}, staticProps);
+      let html = ReactDOM.renderToStaticMarkup(<PageNotFound {...data} />);
       return res.status(404).send(html);
     }
 
@@ -36,7 +32,6 @@ app.use((req, res) => {
     }, staticProps);
 
     let html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
-
     res.status(200).send('<!doctype html>\n' + html)
   });
 });

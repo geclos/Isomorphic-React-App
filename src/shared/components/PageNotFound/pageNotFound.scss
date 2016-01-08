@@ -1,0 +1,22 @@
+.root {
+  background-color: #efefef;
+  color: #333;
+
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.vCenter {
+  align-items: center;
+}
+
+.hCenter {
+  justify-content: center;
+}
+
+.muted {
+  color: #888;
+}

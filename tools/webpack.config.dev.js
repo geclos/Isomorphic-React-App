@@ -17,7 +17,11 @@ const generalConfig = {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loaders: ['react-hot', 'babel']
+      loader: 'babel',
+      query: {
+        plugins: ["transform-decorators-legacy"],
+        presets: ["es2015", "stage-1", "react"]
+      }
     }, {
       test: /\.css$|\.scss$/,
       loaders: [

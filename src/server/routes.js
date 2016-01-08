@@ -1,8 +1,12 @@
-import { Route, Router, browserHistory } from 'react-router'
-import App from '../shared/components/App.jsx';
-import Home from '../shared/components/Home/Home.jsx';
+import { Route, IndexRoute } from 'react-router'
+import About from '../shared/components/About/About';
+import App from '../shared/components/';
+import Home from '../shared/components/Home/Home';
 import React from 'react';
 
-export default (
-  <Route path="/" component={Home} />
-);
+export default [
+  <Route path="/" name="root" component={App}>
+    <IndexRoute component={Home} />
+    <Route path="about" component={About} />
+  </Route>
+];
