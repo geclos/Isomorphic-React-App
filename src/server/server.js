@@ -5,6 +5,7 @@ import PageNotFound from '../shared/components/PageNotFound/PageNotFound.jsx';
 import path from 'path';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
+import assets from './assets';
 import routes from './routes';
 
 const app = express();
@@ -27,7 +28,7 @@ app.use((req, res) => {
     }
 
     let data = Object.assign({
-      script: '/js/client.js',
+      script: assets.main.js,
       body: ReactDOM.renderToString(<RoutingContext {...renderProps}/>)
     }, staticProps);
 
@@ -37,7 +38,7 @@ app.use((req, res) => {
 });
 
 let server = app.listen(port, () => {
-  console.log(`The server is running at http://localhost`, port);
+  console.log('The server is running at http://localhost:' + port + '/');
 });
 
 // Close server on error

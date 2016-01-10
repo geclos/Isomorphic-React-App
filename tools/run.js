@@ -12,7 +12,7 @@ function format(time) {
 }
 
 async function run(fn, options) {
-  if (typeof fn === 'object') {
+  if (typeof fn !== 'function') {
     fn = fn.default;
   }
 

@@ -1,5 +1,4 @@
 import React, {Component, PropTypes} from 'react';
-import normalize from 'normalize.css';
 import s from '../styles/base.scss';
 
 class Html extends Component {
@@ -21,7 +20,6 @@ class Html extends Component {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
           <title>{this.props.title}</title>
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
-          <style type="text/css" dangerouslySetInnerHTML={{ __html: normalize._getCss() }} />
           <style type="text/css" dangerouslySetInnerHTML={{ __html: s._getCss() }} />
         </head>
         <body className={s.body}>

@@ -7,15 +7,8 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import del from 'del';
-import fs from './lib/fs';
+import http from 'http';
 
-/**
- * Cleans up the output (build) directory.
- */
-async function clean() {
-  await del(['.tmp', 'build/*', '!build/.git'], { dot: true });
-  await fs.makeDir('build/public');
-}
-
-export default clean;
+export default async (url) => new Promise((resolve, reject) =>
+    http.get(url, res => resolve(res)).on('error', err => reject(err))
+);
