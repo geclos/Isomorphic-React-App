@@ -1,17 +1,12 @@
 import {connect} from 'react-redux';
 import classNames from 'classnames';
 import React from 'react';
-import s from './Home.scss';
 import withStyles from '../../decorators/withStyles';
 
-@withStyles(s)
 @connect(state => ({loginState: state.loginState}))
 export default class Home extends React.Component {
   static defaultProps = {
-    loginState: {
-      get: () => undefined,
-      set: () => undefined
-    }
+    loginState: {}
   };
 
   _onClick() {
@@ -21,13 +16,17 @@ export default class Home extends React.Component {
   render () {
     const {loginState, dispatch} = this.props
 
+    let style = {
+      height: '100%'
+    }
+
     return (
-      <section className={classNames("container", "flex", "h-center", "v-center", s.root)}>
+      <section style={style} className={classNames("container", "flex", "h-center", "v-center")}>
         <section>
           <header>
             <h1 className="display-h3 text-light">
               Welcome,
-              {loginState.get('isLoggedIn')
+              {typeof loginState === 'function' && loginState.get('isLoggedIn')
                 ? 'Gerard'
                 : 'User'}
             </h1>
