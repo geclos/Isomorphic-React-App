@@ -7,8 +7,8 @@ Highly inspired from [React Starter Kit](https://github.com/kriasoft/react-start
 Enjoy!
 
 ## TODO
-- Add build, and deploy scripts
+- ~~Add build, and deploy scripts~~
 - ~~Implement React router~~
-- Add some more basic styling
+- ~~Add some more basic styling~~
 - ~~Include a css framework?? (not gonna happen)~~
 - ~~Added postCSS support~~
