@@ -6,8 +6,8 @@ $black: #444343;
 
 /* Primary color (Full) */
 $brand-color: #0772A1;
-$dark-brand-color: #213D4C;	// Main Primary color */
-$desat-brand-color: #C4E4F2;	// Main Primary color */
+$dark-brand-color: #213D4C;	/* Main Primary color */
+$desat-brand-color: #C4E4F2;	/* Main Primary color */
 $bright-brand-color: #0BB6FF;
 
 /* Primary color (Dark) */
@@ -21,7 +21,7 @@ $desat-brand-color-2: #DFF2FA;
 $desat-brand-color-3: #A8D3E6;
 $desat-brand-color-4: #8BBFD6;
 
-$bright-pastel-brand-color: #E9EFF3;	// Main Primary color */
+$bright-pastel-brand-color: #E9EFF3;	/* Main Primary color */
 $bright-pastel-brand-color-2: #FDFDFE;
 $bright-pastel-brand-color-3: #C4D3DD;
 $bright-pastel-brand-color-4: #90AABB;
@@ -36,34 +36,34 @@ $deep-blue-color-4: #0F1E7F;
 /* Secondary color (2) */
 $green-color-1: #4FCA80;
 $green-color-2: #2ABC65;
-$green-color: #00B74A;	// Main Primary color */
+$green-color: #00B74A;	/* Main Primary color */
 $green-color-3: #008E39;
 $green-color-4: #00401A;
 
 /* Complementary color */
 $yellow-color-1: #FFB664;
 $yellow-color-2: #FFA239;
-$yellow-color: #FF8700;	// Main Primary color */
+$yellow-color: #FF8700;	/* Main Primary color */
 $yellow-color-3: #C66800;
 $yellow-color-4: #592F00;
 
 /* Alert color */
 $red-color-1: #FF8164;
 $red-color-2: #FF5F39;
-$red-color: #FF3100;	// Main Primary color */
+$red-color: #FF3100;	/* Main Primary color */
 $red-color-3: #C62600;
 $red-color-4: #591100;
 
 $gray-color-1: #F6F8FA;
 $gray-color-2: #E7EEF1;
-$gray-color: #D2DCE4;	// Main Primary color */
+$gray-color: #D2DCE4;	/* Main Primary color */
 $gray-color-3: #B9CCD5;
 $gray-color-4: #9EADB5;
 
 
 /* helpers */
 $text-muted: $gray-color-4;
-// $background-color: #DCEAF5;
+/* $background-color: #DCEAF5; */
 $background-color: #BCD7E2;
 $panel-background: $white;
 $text-color: $dark-brand-color-1;

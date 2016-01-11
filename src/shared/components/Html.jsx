@@ -1,5 +1,4 @@
 import React, {Component, PropTypes} from 'react';
-import s from '../styles/base.scss';
 
 class Html extends Component {
   static propTypes = {
@@ -14,15 +13,16 @@ class Html extends Component {
 
   render () {
     return (
-      <html className="no-js" lang="">
+      <html>
         <head>
           <meta charSet="utf-8"/>
           <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
           <title>{this.props.title}</title>
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
-          <style type="text/css" dangerouslySetInnerHTML={{ __html: s._getCss() }} />
+          <link href="normalize.css" rel="stylesheet" />
+          <link href="main.css" rel="stylesheet" />
         </head>
-        <body className={s.body}>
+        <body>
           <div id="ReactApp" dangerouslySetInnerHTML={{__html: this.props.body}}/>
           <script src={this.props.script}></script>
         </body>

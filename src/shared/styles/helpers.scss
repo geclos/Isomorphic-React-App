@@ -1,10 +1,8 @@
-@import './colors.scss';
-
 /*===============================
 =            HELPERS            =
 ===============================*/
 
-// BORDER HELPERS
+/*  BORDER HELPERS */
 .border-bottom {
   border-bottom: 1px solid $border-color;
 }
@@ -21,7 +19,7 @@
   border-left: 1px solid $border-color;
 }
 
-// TYPE HELPERS
+/*  TYPE HELPERS */
 .slight-highlight {
   cursor: pointer;
   border-bottom: 1px dotted;
@@ -63,12 +61,12 @@
   font-weight: 900 !important;
 }
 
-// ALIGNMENT HELPERS
+/*  ALIGNMENT HELPERS */
 .align-bottom {
   vertical-align: bottom;
 }
 
-// MARGIN HELPERS
+/*  MARGIN HELPERS */
 .no-margin {
   margin: 0 !important;
 }
@@ -85,7 +83,7 @@
   margin-top: $spacing-unit / 4;
 }
 
-// STYLE HELPERS
+/*  STYLE HELPERS */
 .no-shadow {
   box-shadow: none !important;
 }
@@ -99,7 +97,7 @@
   cursor: pointer;
 }
 
-// LAYOUT HELPERS
+/*  LAYOUT HELPERS */
 .block {
   display: block !important;
 }

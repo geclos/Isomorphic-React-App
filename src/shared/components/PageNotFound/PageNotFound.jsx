@@ -11,6 +11,8 @@ class PageNotFound extends React.Component {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
           <title>{this.props.title}</title>
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
+          <link rel="stylesheet" href="normalize.css" />
+          <link rel="stylesheet" href="main.css" />
           <style type="text/css" dangerouslySetInnerHTML={{ __html: s._getCss() }} />
         </head>
         <body className={s.root}>

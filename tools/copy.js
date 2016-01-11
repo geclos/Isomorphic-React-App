@@ -7,22 +7,32 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import path from 'path';
+import fs from 'fs';
 import gaze from 'gaze';
-import replace from 'replace';
+import path from 'path';
+import postcss from 'postcss';
 import Promise from 'bluebird';
+import replace from 'replace';
+import syntax from 'postcss-scss';
 
 /**
  * Copies static files such as robots.txt, favicon.ico to the
  * output (build) folder.
  */
-async function copy({ watch } = {}) {
+async function copy({
+  watch
+} = {}) {
   const ncp = Promise.promisify(require('ncp'));
 
+  try {
+    await processCSS();
+  } catch (e) {
+    throw e;
+  }
+
   await Promise.all([
-    ncp('src/server/public', 'build/public'),
-    ncp('src/shared/content', 'build/content'),
-    ncp('package.json', 'build/package.json'),
+    ncp('src/shared/content', 'build/public'),
+    ncp('package.json', 'build/package.json')
   ]);
 
   replace({
@@ -35,13 +45,41 @@ async function copy({ watch } = {}) {
 
   if (watch) {
     const watcher = await new Promise((resolve, reject) => {
-      gaze('src/shared/content/**/*.*', (err, val) => err ? reject(err) : resolve(val));
+      gaze(['src/shared/content/**/*.*', 'src/shared/styles/**/*.*'], (err, val) =>
+        err ? reject(err) : resolve(val)
+      );
     });
-    watcher.on('changed', async (file) => {
-      const relPath = file.substr(path.join(__dirname, '../src/shared/content/').length);
-      await ncp(`src/shared/content/${relPath}`, `build/content/${relPath}`);
+    watcher.on('changed', async(file) => {
+      await processCSS();
+      await ncp('src/shared/content', 'build/public');
     });
   }
+}
+
+// Parse main.scss to /src/shared/content
+function processCSS(argument) {
+  return new Promise((resolve, reject) => {
+    fs.readFile('src/shared/styles/main.scss', (err, data) => {
+      if (err) reject(err);
+      postcss([
+          require('postcss-import'),
+          require('autoprefixer'),
+          require('precss'),
+          require('postcss-discard-comments')
+        ])
+        .process(data, {
+          from: 'src/shared/styles/main.scss',
+          to: 'src/shared/styles/main.scss',
+          syntax: syntax
+        }).then((result) => {
+          fs.writeFileSync('src/shared/content/main.css', result.css);
+          if (result.map) fs.writeFileSync('src/shared/content/main.css.map', result.map);
+          resolve();
+        }).catch((err) => {
+          reject(err);
+        });
+    });
+  })
 }
 
 export default copy;

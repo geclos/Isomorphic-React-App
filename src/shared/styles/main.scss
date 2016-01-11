@@ -1,0 +1,29 @@
+/*==================================
+=            MAIN STYLE            =
+==================================*/
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("/fonts/Montserrat-Light.otf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("/fonts/Montserrat-Regular.otf");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url("/fonts/Montserrat-Bold.otf");
+  font-weight: 700;
+}
+
+/* GLOBAL */
+@import "variables.scss";
+@import "colors.scss";
+@import "helpers.scss";
+
+/* LAYOUT */ 
+@import "base.scss";
