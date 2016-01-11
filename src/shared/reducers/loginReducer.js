@@ -8,14 +8,16 @@ const defaultState = immutable.Map({
 export default function loginReducer (state = defaultState, action) {
   switch (action.type) {
     case "LOGIN":
-      return state
+      if (action.accessToken) {
+        return state
         .set('accessToken', action.accessToken)
         .set('isLoggedIn', true);
+      } else {
+        return state;
+      }
       break;
     case "LOGOUT":
-      return state
-        .set('accessToken', '')
-        .set('isLoggedIn', false);
+      return defaultState;
       break;
     default:
       return state;

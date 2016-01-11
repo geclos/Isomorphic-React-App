@@ -48,16 +48,16 @@ Color palette
 ===============================*/
 /*  BORDER HELPERS */
 .border-bottom {
-  border-bottom: 1px solid #C4D3DD;
+  border-bottom: 1px solid #90AABB;
 }
 .border-top {
-  border-top: 1px solid #C4D3DD;
+  border-top: 1px solid #90AABB;
 }
 .border-right {
-  border-right: 1px solid #C4D3DD;
+  border-right: 1px solid #90AABB;
 }
 .border-left {
-  border-left: 1px solid #C4D3DD;
+  border-left: 1px solid #90AABB;
 }
 /*  ALIGNMENT HELPERS */
 .align-bottom {
@@ -114,6 +114,12 @@ Color palette
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+}
+.pull-right {
+  float: right !important;
+}
+.pull-left {
+  float: left !important;
 }
 .container {
   margin: 0 auto;
@@ -480,6 +486,12 @@ small, .font_small {
   font-weight: 400;
   height: auto;
 }
+.btn.btn-outline {
+  background: transparent !important;
+  border-radius: 3px;
+  border-width: 1px !important;
+  box-shadow: none !important;
+}
 .btn.btn-bg {
   padding: 1rem 1.5rem;
   text-transform: uppercase;
@@ -488,10 +500,10 @@ small, .font_small {
   height: 40px;
 }
 .btn.btn-default {
-  color: #fff !important;
-  border-color: #C4D3DD;
+  color: #90AABB;
+  border-color: #90AABB;
   background-color: #F6FCFE;
-  box-shadow: 0 1px 0 #C4D3DD;
+  box-shadow: 0 1px 0 #90AABB;
 }
 .btn.btn-default.btn-disabled, .btn.btn-default[disabled='disabled'], .btn.btn-default[disabled='true'], .btn.btn-default[disabled=''] {
   border: none;
@@ -499,8 +511,8 @@ small, .font_small {
   background-color: #90AABB;
 }
 .btn.btn-default:hover, .btn.btn-default:focus {
-  border-color: darken(#C4D3DD, 10%);
-  box-shadow: 0 1px 0 darken(#C4D3DD, 10%);
+  border-color: darken(#90AABB, 10%);
+  box-shadow: 0 1px 0 darken(#90AABB, 10%);
 }
 .btn.btn-link {
   border: none;

@@ -23,7 +23,7 @@ if (initialState) {
 
   initComponent = (
     <Provider store={store}>
-      <Router children={routes} history={history}/>
+      <Router children={routes} history={history} />
     </Provider>
   );
 } else {

@@ -13,6 +13,9 @@
   align-items: center;
 }
 
+.pull-right {float: right !important;}
+.pull-left {float: left !important;}
+
 .container {
   margin: 0 auto;
   max-width: 1200px;

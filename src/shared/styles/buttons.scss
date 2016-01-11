@@ -129,7 +129,7 @@
   }
 
   &.btn-default {
-    color: $text-color !important;
+    color: $border-color;
     border-color: $border-color;
     background-color: $slight-accent-color;
     box-shadow: 0 1px 0 $border-color;
@@ -156,5 +156,12 @@
   &.btn-bg {
     padding: 1rem 1.5rem;
     text-transform: uppercase;
+  }
+
+  &.btn-outline {
+    background: transparent !important;
+    border-radius: $border-radius;
+    border-width: 1px !important;
+    box-shadow: none !important;
   }
 }

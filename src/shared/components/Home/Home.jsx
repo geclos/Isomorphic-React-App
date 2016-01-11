@@ -1,6 +1,9 @@
 import {connect} from 'react-redux';
+import {logIn} from '../../actions/loginActions';
 import classNames from 'classnames';
 import React from 'react';
+import Header from '../core/Header/Header.jsx';
+import Footer from '../core/Footer/Footer.jsx';
 import withStyles from '../../decorators/withStyles';
 
 @connect(state => ({loginState: state.loginState}))
@@ -9,7 +12,13 @@ export default class Home extends React.Component {
     loginState: {}
   };
 
-  _onClick() {
+  componentDidMount () {
+    if (typeof this.props.loginState.get === 'function' && !this.props.loginState.get('isLoggedIn')) {
+      this.props.dispatch(logIn());
+    }
+  }
+
+  _onClick () {
     window.location = "https://dashboard.wide-eyes.it/signup.html";
   }
 
@@ -21,12 +30,12 @@ export default class Home extends React.Component {
     }
 
     return (
-      <section style={style} className={classNames("container", "flex", "h-center", "v-center")}>
-        <section>
+      <section style={style}>
+        <Header {...this.props} />
+        <section style={style} className={classNames("container", "flex", "h-center", "v-center")}>
           <header>
             <h1 className="display-h3 text-light">
-              Welcome,
-              {typeof loginState === 'function' && loginState.get('isLoggedIn')
+              Welcome, {typeof loginState.get === 'function' && loginState.get('isLoggedIn')
                 ? 'Gerard'
                 : 'User'}
             </h1>
@@ -38,6 +47,7 @@ export default class Home extends React.Component {
             </button>
           </header>
         </section>
+        <Footer />
       </section>
     );
   }
