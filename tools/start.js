@@ -43,7 +43,8 @@ async function start() {
           // https://github.com/gaearon/babel-plugin-react-transform
           presets: ['es2015', 'react'],
           plugins: [
-            ['transform-object-rest-spread'],
+            ["transform-class-properties"],
+            ["transform-decorators-legacy"],
             ['react-transform', {
               transforms: [
                 {

@@ -1,0 +1,3 @@
+@define-mixin transition $prop, $speed {
+  transition: $prop $speed ease-in-out;
+}

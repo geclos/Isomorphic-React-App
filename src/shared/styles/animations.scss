@@ -1,0 +1,44 @@
+/*==================================
+=            ANIMATIONS            =
+==================================*/
+.loading-spinner-container {
+  display: inline-block;
+
+  .loading-spinner {
+    border: 2px solid transparent;
+    border-top-color: $brand-color;
+    border-left-color: $brand-color;
+    border-radius: 50%;
+    display: block;
+    height: 28px;
+    margin: 0 auto;
+    width: 28px;
+    z-index: 2000;
+  }
+}
+
+.btn {
+  .loading-spinner-container {
+    .loading-spinner {
+      border-top-color: $white;
+      border-left-color: $white;
+    }
+  }
+}
+
+.fade {
+  opacity: 1;
+}
+
+.fade.ng-hide-add,
+.fade.ng-hide-remove {
+  transition: opacity linear $animation-speed;
+}
+
+.fade.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}
+
+/*-----  End of ANIMATIONS  ------*/

@@ -1,12 +1,19 @@
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 import {RoutingContext, match} from 'react-router';
+import * as reducers from '../shared/reducers/';
+import assets from './assets';
 import express from 'express';
 import Html from '../shared/components/Html.jsx';
 import PageNotFound from '../shared/components/PageNotFound/PageNotFound.jsx';
 import path from 'path';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
-import assets from './assets';
 import routes from './routes';
+
+
+const reducer = combineReducers(reducers)
+const store = createStore(reducer)
 
 const app = express();
 const port = 3000;
@@ -28,8 +35,13 @@ app.use((req, res) => {
     }
 
     let data = Object.assign({
+      initialState: store.getState(),
       script: assets.main.js,
-      body: ReactDOM.renderToString(<RoutingContext {...renderProps}/>)
+      body: ReactDOM.renderToString(
+        <Provider store={store}>
+          <RoutingContext {...renderProps}/>
+        </Provider>
+      )
     }, staticProps);
 
     let html = ReactDOM.renderToStaticMarkup(<Html {...data} />);

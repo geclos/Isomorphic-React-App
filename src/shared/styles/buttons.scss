@@ -1,0 +1,160 @@
+/*================================
+=            BUTTONS            =
+================================*/
+
+.btn {
+  @mixin transition all, $animation-speed;
+  border-radius: $border-radius;
+  font-size: $font-size-base;
+  padding: .6rem 1rem;
+  border: 1px solid;
+  font-weight: 400;
+  height: auto;
+
+  &:hover, &:focus {
+    background-repeat: none;
+    background-image: none;
+    text-decoration: none;
+    outline: none;
+  }
+
+  &.btn-primary {
+    border-color: $brand-color;
+    background-color: $bright-brand-color;
+    box-shadow: 0 1px 0 $brand-color;
+
+    &:hover, &:focus {
+      border-color: $dark-brand-color;
+      box-shadow: 0 1px 0 $dark-brand-color;
+    }
+
+    &.btn-disabled,
+    &[disabled='disabled'],
+    &[disabled='true'],
+    &[disabled=''] {
+      border: none;
+      box-shadow: none;
+      pointer-events: none;
+      background-color: $desat-brand-color-4;
+    }
+  }
+
+  &.btn-success {
+    border-color: $green-color-3;
+    background-color: $green-color-2;
+    box-shadow: 0 1px 0 $green-color-3;
+
+    &:hover, &:focus {
+      border-color: $green-color-4;
+      box-shadow: 0 1px 0 $green-color-4;
+    }
+
+    &.btn-disabled,
+    &[disabled='disabled'],
+    &[disabled='true'],
+    &[disabled=''] {
+      border: none;
+      pointer-events: none;
+      background-color: $green-color-4;
+    }
+  }
+
+  &.btn-warning {
+    border-color: $yellow-color-3;
+    background-color: $yellow-color-2;
+    box-shadow: 0 1px 0 $yellow-color-3;
+
+    &:hover, &:focus {
+      border-color: $yellow-color-4;
+      box-shadow: 0 1px 0 $yellow-color-4;
+    }
+
+    &.btn-disabled,
+    &[disabled='disabled'],
+    &[disabled='true'],
+    &[disabled=''] {
+      border: none;
+      pointer-events: none;
+      background-color: $yellow-color-4;
+    }
+  }
+
+  &.btn-alert {
+    border-color: $red-color-3;
+    background-color: $red-color-2;
+    box-shadow: 0 1px 0 $red-color-3;
+
+    &:hover, &:focus {
+      border-color: $red-color-4;
+      box-shadow: 0 1px 0 $red-color-4;
+    }
+
+    &.btn-disabled,
+    &[disabled='disabled'],
+    &[disabled='true'],
+    &[disabled=''] {
+      border: none;
+      pointer-events: none;
+      background-color: $red-color-4;
+    }
+  }
+
+  &.btn-link {
+    border: none;
+    background: none;
+    color: $link-color;
+    height: initial;
+    min-width: initial;
+    vertical-align: baseline;
+
+    &:focus, &:hover {
+      border: none;
+      outline: none;
+      background: none;
+      box-shadow: none;
+      text-decoration: none;
+      color: $link-hover-color;
+    }
+
+    &:active, &:visited {
+      color: $link-color;
+    }
+
+    &.btn-disabled,
+    &[disabled='disabled'],
+    &[disabled='true'],
+    &[disabled=''] {
+      pointer-events: none;
+    }
+  }
+
+  &.btn-default {
+    color: $text-color !important;
+    border-color: $border-color;
+    background-color: $slight-accent-color;
+    box-shadow: 0 1px 0 $border-color;
+
+    &:hover, &:focus {
+      border-color: darken($border-color, 10%);
+      box-shadow: 0 1px 0 darken($border-color, 10%);
+    }
+
+    &.btn-disabled,
+    &[disabled='disabled'],
+    &[disabled='true'],
+    &[disabled=''] {
+      border: none;
+      pointer-events: none;
+      background-color: $bright-pastel-brand-color-4;
+    }
+  }
+
+  &.btn-sm {
+    height: 40px;
+  }
+
+  &.btn-bg {
+    padding: 1rem 1.5rem;
+    text-transform: uppercase;
+  }
+}

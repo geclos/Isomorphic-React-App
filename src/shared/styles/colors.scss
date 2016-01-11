@@ -62,13 +62,16 @@ $gray-color-4: #9EADB5;
 
 
 /* helpers */
-$text-muted: $gray-color-4;
+/* $background-color: #BCD7E2; */
 /* $background-color: #DCEAF5; */
-$background-color: #BCD7E2;
-$panel-background: $white;
-$text-color: $dark-brand-color-1;
+$background-color: $dark-brand-color-4;
 $border-color: $bright-pastel-brand-color-3;
+$panel-background: $white;
+
 $slight-accent-color: $desat-brand-color-1;
+
+$text-color: $white;
+$text-muted: $gray-color-4;
 
 /* link colors */
 $link-color: $brand-color;

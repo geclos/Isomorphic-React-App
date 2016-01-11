@@ -19,48 +19,6 @@
   border-left: 1px solid $border-color;
 }
 
-/*  TYPE HELPERS */
-.slight-highlight {
-  cursor: pointer;
-  border-bottom: 1px dotted;
-
-  &:active, &:hover, &:focus {
-    text-decoration: none !important;
-    border-bottom: none;
-  }
-}
-
-.text-muted {
-  color: $text-muted;
-}
-
-.text-warning {
-  font-weight: 600;
-  color: $yellow-color !important;
-}
-
-.text-danger {
-  font-weight: 600;
-  color: $red-color !important;
-}
-
-.text-success {
-  font-weight: 600;
-  color: $green-color !important;
-}
-
-.text-light {
-  font-weight: 300 !important;
-}
-
-.text-strong {
-  font-weight: 600 !important;
-}
-
-.text-stronger {
-  font-weight: 900 !important;
-}
-
 /*  ALIGNMENT HELPERS */
 .align-bottom {
   vertical-align: bottom;

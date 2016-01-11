@@ -6,10 +6,36 @@ html {
 
 body {
   @extend html;
-
   background-color: $background-color;
+  color: $text-color;
   font-family: $font-family-base;
   font-size: $font-size-base;
   font-weight: $font-weight-base;
   line-height: $line-height-base;
+}
+
+#ReactApp, .ReactApp {
+  @extend html;
+}
+
+a {
+  @mixin transition all, 0.1s;
+  text-decoration: none;
+  &:hover {
+    @mixin transition all, 0.1s;
+    color: $link-hover-color;
+    text-decoration: none;
+  }
+  &:active, &:focus {
+    text-decoration: none;
+  }
+}
+
+ul, ul.list-inline {
+  list-style: none;
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
 }

@@ -3,6 +3,7 @@ import React, {Component, PropTypes} from 'react';
 class Html extends Component {
   static propTypes = {
     body: PropTypes.string.isRequired,
+    initialState: PropTypes.object.isRequired,
     script: PropTypes.string,
     title: PropTypes.string.isRequired
   };
@@ -12,6 +13,7 @@ class Html extends Component {
   };
 
   render () {
+    let initState = 'window.__INITIAL_STATE__ = ' + JSON.stringify(this.props.initialState);
     return (
       <html>
         <head>
@@ -20,7 +22,9 @@ class Html extends Component {
           <title>{this.props.title}</title>
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
           <link href="normalize.css" rel="stylesheet" />
+          <link href="font-awesome.min.css" rel="stylesheet" />
           <link href="main.css" rel="stylesheet" />
+          <script dangerouslySetInnerHTML={{__html: initState}} />
         </head>
         <body>
           <div id="ReactApp" dangerouslySetInnerHTML={{__html: this.props.body}}/>

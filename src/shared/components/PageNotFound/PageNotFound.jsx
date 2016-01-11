@@ -18,7 +18,7 @@ class PageNotFound extends React.Component {
         <body className={s.root}>
           <section className={classNames(s.container, s.hCenter, s.vCenter)}>
             <header>
-              <h1>Page Not Found</h1>
+              <h1>Page Not Found :(</h1>
               <h3 className={classNames(s.muted, s.normal)}>
                 The page you were looking for is not here. <a href="/">Go home &rarr;.</a>
               </h3>

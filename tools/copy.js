@@ -13,7 +13,7 @@ import path from 'path';
 import postcss from 'postcss';
 import Promise from 'bluebird';
 import replace from 'replace';
-import syntax from 'postcss-scss';
+import syntax from 'postcss-import';
 
 /**
  * Copies static files such as robots.txt, favicon.ico to the
@@ -31,7 +31,10 @@ async function copy({
   }
 
   await Promise.all([
-    ncp('src/shared/content', 'build/public'),
+    ncp('node_modules/normalize.css/', 'build/public/'),
+    ncp('node_modules/font-awesome/css/', 'build/public/'),
+    ncp('node_modules/font-awesome/fonts/', 'build/public/fonts/'),
+    ncp('src/shared/content/', 'build/public/'),
     ncp('package.json', 'build/package.json')
   ]);
 
@@ -62,15 +65,12 @@ function processCSS(argument) {
     fs.readFile('src/shared/styles/main.scss', (err, data) => {
       if (err) reject(err);
       postcss([
-          require('postcss-import'),
-          require('autoprefixer'),
-          require('precss'),
-          require('postcss-discard-comments')
+        require('precss'),
+        require('autoprefixer')
         ])
         .process(data, {
           from: 'src/shared/styles/main.scss',
-          to: 'src/shared/styles/main.scss',
-          syntax: syntax
+          to: 'src/shared/styles/main.scss'
         }).then((result) => {
           fs.writeFileSync('src/shared/content/main.css', result.css);
           if (result.map) fs.writeFileSync('src/shared/content/main.css.map', result.map);
