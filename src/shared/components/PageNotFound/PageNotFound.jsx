@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
+import s from './PageNotFound.scss';
 
 class PageNotFound extends React.Component {
   render () {
@@ -10,12 +11,13 @@ class PageNotFound extends React.Component {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
           <title>{this.props.title}</title>
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
+          <style type="text/css" dangerouslySetInnerHTML={{ __html: s._getCss() }} />
         </head>
-        <body>
-          <section>
+        <body className={s.root}>
+          <section className={classNames(s.container, s.hCenter, s.vCenter)}>
             <header>
-              <h1>Page Not</h1>
-              <h3>
+              <h1>Page Not Found</h1>
+              <h3 className={classNames(s.muted, s.normal)}>
                 The page you were looking for is not here. <a href="/">Go home &rarr;.</a>
               </h3>
             </header>

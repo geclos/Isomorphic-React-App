@@ -37,13 +37,14 @@ async function start() {
       config.plugins.push(new webpack.HotModuleReplacementPlugin());
       config.plugins.push(new webpack.NoErrorsPlugin());
       config.module.loaders
-        .filter(x => x.loader === 'babel-loader')
+        .filter(x => x.loader === 'babel')
         .forEach(x => x.query = {
           // Wraps all React components into arbitrary transforms
           // https://github.com/gaearon/babel-plugin-react-transform
-          plugins: ['react-transform'],
-          extra: {
-            'react-transform': {
+          presets: ['es2015', 'react'],
+          plugins: [
+            ['transform-object-rest-spread'],
+            ['react-transform', {
               transforms: [
                 {
                   transform: 'react-transform-hmr',
@@ -54,8 +55,8 @@ async function start() {
                   imports: ['react', 'redbox-react'],
                 },
               ],
-            },
-          },
+            }],
+          ]
         });
     });
 

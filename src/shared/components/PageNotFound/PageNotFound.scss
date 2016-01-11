@@ -1,4 +1,5 @@
 .root {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: #efefef;
   color: #333;
 
@@ -19,4 +20,8 @@
 
 .muted {
   color: #888;
+}
+
+.normal {
+  font-weight: 400;
 }
