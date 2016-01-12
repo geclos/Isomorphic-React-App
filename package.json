@@ -1,7 +1,7 @@
 {
   "name": "isomorphic-react-app-generator",
   "version": "1.0.2",
-  "repository": "Isomorphic React App Generator",
+  "repository": "git@github.com:geclos/Isomorphic-React-App.git",
   "description": "Isomorphic React app generator",
   "dependencies": {
     "classnames": "^2.2.3",
