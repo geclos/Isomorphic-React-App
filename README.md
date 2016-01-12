@@ -1,7 +1,7 @@
 #Isomorphic React App Generator
 Barebones Isomorphic React App to bootstrap your React projects. 
 
-  ```npm i isomorphic-react-app-generator```
+    ```npm i isomorphic-react-app-generator```
 
 ## Webpack + Babel + React + Redux + ExpressJS + BrowserSync + postCSS = Isomorphic React App Generator
 Highly inspired from [React Starter Kit](https://github.com/kriasoft/react-starter-kit) and  [Isomorphic React Example](https://github.com/DavidWells/isomorphic-react-example).
@@ -9,12 +9,12 @@ Highly inspired from [React Starter Kit](https://github.com/kriasoft/react-start
 ## Usage
 
 Start dev server:
-  ```npm start```
+    ```npm start```
 
 Build:
-  ```npm run build```
+    ```npm run build```
 
 Build for production:
-  ```npm run build --release```
+    ```npm run build --release```
 
 Enjoy!
