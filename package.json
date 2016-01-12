@@ -1,8 +1,8 @@
 {
-  "name": "generator-react-isomorphic",
+  "name": "Isomorphic React App Generator",
   "version": "1.0.0",
-  "repository": "Isomorphic React App",
-  "description": "Isomorphic React app generator for Wide Eyes",
+  "repository": "Isomorphic React App Generator",
+  "description": "Isomorphic React app generator",
   "dependencies": {
     "classnames": "^2.2.3",
     "express": "^4.13.3",
@@ -74,9 +74,7 @@
   },
   "scripts": {
     "test": "",
-    "copy": "babel-node tools/run copy",
     "build": "babel-node tools/run build",
-    "deploy": "babel-node tools/run deploy",
     "start": "babel-node tools/run start"
   },
   "author": "GC",
