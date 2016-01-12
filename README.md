@@ -1,5 +1,5 @@
 #Isomorphic React App Generator
-Barebones Isomorphic React App to bootstrap your React projects. 
+Barebones Isomorphic React App to bootstrap your React projects.
 
     npm i isomorphic-react-app-generator
 
@@ -9,12 +9,15 @@ Highly inspired from [React Starter Kit](https://github.com/kriasoft/react-start
 ## Usage
 
 Start dev server:
+
     npm start
 
 Build:
+
     npm run build
 
 Build for production:
+
     npm run build --release
 
 Enjoy!
