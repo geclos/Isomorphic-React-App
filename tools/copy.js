@@ -31,7 +31,7 @@ async function copy({
   }
 
   await Promise.all([
-    ncp('node_modules/normalize.css/', 'build/public/'),
+    ncp('node_modules/milligram/dist/', 'build/public/'),
     ncp('node_modules/font-awesome/css/', 'build/public/'),
     ncp('node_modules/font-awesome/fonts/', 'build/public/fonts/'),
     ncp('src/shared/content/', 'build/public/'),

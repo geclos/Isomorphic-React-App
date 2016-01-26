@@ -1,11 +1,11 @@
-import immutable from 'immutable'
+import Immutable from 'immutable'
 
-const defaultState = immutable.Map({
+const defaultState = Immutable.Map({
   accessToken: '',
   isLoggedIn: false
 });
 
-export default function loginReducer (state = defaultState, action) {
+const login = (state = defaultState, action) => {
   switch (action.type) {
     case "LOGIN":
       if (action.accessToken) {
@@ -23,3 +23,5 @@ export default function loginReducer (state = defaultState, action) {
       return state;
   }
 }
+
+export default login

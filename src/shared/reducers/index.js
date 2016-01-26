@@ -1,1 +1,1 @@
-export { default as loginState } from './loginReducer';
+export {default as login} from './loginReducer';

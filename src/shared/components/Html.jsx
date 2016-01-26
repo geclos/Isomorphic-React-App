@@ -21,9 +21,8 @@ class Html extends Component {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge"/>
           <title>{this.props.title}</title>
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
-          <link href="normalize.css" rel="stylesheet" />
           <link href="font-awesome.min.css" rel="stylesheet" />
-          <link href="main.css" rel="stylesheet" />
+          <link href="milligram.css" rel="stylesheet" />
           <script dangerouslySetInnerHTML={{__html: initState}} />
         </head>
         <body>
