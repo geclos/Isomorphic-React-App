@@ -1,94 +1,32 @@
-/*
-Color palette
-*/
 $white: #fff;
-$black: #444343;
+$black: #333;
 
-/* Primary color (Full) */
-$brand-color: #0772A1;
-$dark-brand-color: #213D4C;	/* Main Primary color */
-$desat-brand-color: #C4E4F2;	/* Main Primary color */
-$bright-brand-color: #0BB6FF;
+$gray: #ececec;
+$dark-gray: #ccc;
 
-/* Primary color (Dark) */
-$dark-brand-color-1: #456171;
-$dark-brand-color-2: #334E5D;
-$dark-brand-color-3: #153140;
-$dark-brand-color-4: #0A222F;
+$text-color: $black;
 
-$desat-brand-color-1: #F6FCFE;
-$desat-brand-color-2: #DFF2FA;
-$desat-brand-color-3: #A8D3E6;
-$desat-brand-color-4: #8BBFD6;
+$border-color: $gray;
 
-$bright-pastel-brand-color: #E9EFF3;	/* Main Primary color */
-$bright-pastel-brand-color-2: #FDFDFE;
-$bright-pastel-brand-color-3: #C4D3DD;
-$bright-pastel-brand-color-4: #90AABB;
+$accent-color: #1193FF;
+$dark-accent-color: #00569D;
+$darker-accent-color: #011323;
 
-/* Secondary color (1) */
-$deep-blue-color-1: #4353B7;
-$deep-blue-color-2: #3041B1;
-$deep-blue-color: #172CAF;
-$deep-blue-color-3: #122492;
-$deep-blue-color-4: #0F1E7F;
+$opposite-color: #FF9A00;
+$dark-opposite-color: #A76500;
 
-/* Secondary color (2) */
-$green-color-1: #4FCA80;
-$green-color-2: #2ABC65;
-$green-color: #00B74A;	/* Main Primary color */
-$green-color-3: #008E39;
-$green-color-4: #00401A;
+$success-color: #00C618;
+$dark-success-color: #00780F;
 
-/* Complementary color */
-$yellow-color-1: #FFB664;
-$yellow-color-2: #FFA239;
-$yellow-color: #FF8700;	/* Main Primary color */
-$yellow-color-3: #C66800;
-$yellow-color-4: #592F00;
+$danger-color: #FF0000;
+$dark-danger-color: #970808;
 
-/* Alert color */
-$red-color-1: #FF8164;
-$red-color-2: #FF5F39;
-$red-color: #FF3100;	/* Main Primary color */
-$red-color-3: #C62600;
-$red-color-4: #591100;
+$background-color: $white;
+$page-header-color: $white;
+$panel-header-color: $white;
 
-$gray-color-1: #F6F8FA;
-$gray-color-2: #E7EEF1;
-$gray-color: #D2DCE4;	/* Main Primary color */
-$gray-color-3: #B9CCD5;
-$gray-color-4: #9EADB5;
+$link-color: $accent-color;
+$link-hover-color: $dark-accent-color;
 
-
-/* helpers */
-/* $background-color: #BCD7E2; */
-/* $background-color: #DCEAF5; */
-$background-color: $dark-brand-color-4;
-$border-color: $bright-pastel-brand-color-4;
-$panel-background: $white;
-
-$slight-accent-color: $desat-brand-color-1;
-
+$background-color: $darker-accent-color;
 $text-color: $white;
-$text-muted: $gray-color-4;
-
-/* link colors */
-$link-color: $brand-color;
-$link-hover-color: $bright-brand-color;
-
-/* Panel colors */
-$panel-header-background: $slight-accent-color;
-$panel-border-color: $border-color;
-
-/* Sidebar */
-$sidebar-background: $dark-brand-color;
-$sidebar-link-hover-background: $dark-brand-color-3;
-
-$sidebar-link-color: $bright-pastel-brand-color-4;
-$sidebar-link-hover-color: $white;
-
-$header-link-color: $muted-text;
-$header-link-hover-color: $link-hover-color;
-
-$page-header-color: $dark-brand-color-1;

@@ -1,52 +1,51 @@
+import Immutable from 'immutable'
 import {connect} from 'react-redux';
-import {logIn} from '../../actions/loginActions';
-import classNames from 'classnames';
-import Footer from '../core/Footer/Footer.jsx';
-import Header from '../core/Header/Header.jsx';
+import {login} from '../../actions/loginActions';
+import s from '../../constants/styles'
 import React from 'react';
 
-@connect(state => ({login: state.login}))
+@connect(state => ({auth: state.auth}))
 export default class Home extends React.Component {
   static defaultProps = {
-    login: {}
+    auth: Immutable.Map()
   };
 
-  componentDidMount() {
-    if (typeof this.props.login.get === 'function' && !this.props.login.get('isLoggedIn')) {
-      this.props.dispatch(logIn());
-    }
+  constructor(props) {
+    super(props)
+
+    this.goToFeed = this.goToFeed.bind(this)
   }
 
-  _onClick() {
-    window.location = "https://dashboard.wide-eyes.it/signup.html";
+  componentDidMount() {
+    const {dispatch} = this.props;
+    dispatch(login());
+  }
+
+
+  goToFeed() {
+    const {history} = this.props;
+    history.pushState(null, '/feed')
   }
 
   render() {
-    const {login, dispatch} = this.props
-
-    return (
-      <section>
-        <Header {...this.props}/>
-        <section className="container">
-          <header className="row row-center">
-            <hgroup className="column col-center">
-              <h1>
-                Welcome,
-                {typeof login.get === 'function' && login.get('isLoggedIn')
-                  ? 'Gerard'
-                  : 'User'}
+    const {auth, dispatch, history} = this.props
+    const content = (
+      <section className="container expand">
+        <header className="row expand">
+          <hgroup className="column center">
+            <h1 style={{fontSize: '8rem'}}>
+              Welcome,&nbsp;
+              {auth.get('isLoggedIn') ? 'Gerard' : 'User'}
               </h1>
-              <h2>
-                It is time to kickstart your Wide Eyes account.
-              </h2>
-              <button onClick={this._onClick.bind(this)}>
-                Let's begin &rarr;
+              <h2>It is time to kickstart your account.</h2>
+              <button className="button button-larger button-outline margin-top" onClick={this.goToFeed}>
+                Let's begin &darr;
               </button>
-            </hgroup>
-          </header>
-        </section>
-        <Footer/>
+          </hgroup>
+        </header>
       </section>
     );
+
+    return auth.get('isLoggedIn') ? content : null;
   }
 }

@@ -23,6 +23,7 @@ class Html extends Component {
           <meta name="viewport" content="width=device-width, initial-scale=1"/>
           <link href="font-awesome.min.css" rel="stylesheet" />
           <link href="milligram.css" rel="stylesheet" />
+          <link href="main.css" rel="stylesheet" />
           <script dangerouslySetInnerHTML={{__html: initState}} />
         </head>
         <body>

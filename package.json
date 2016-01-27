@@ -13,10 +13,11 @@
     "jade": "^1.11.0",
     "milligram": "^1.0.3",
     "normalize.css": "^3.0.3",
-    "react": "^0.14.5",
     "react-dom": "^0.14.5",
     "react-router": "^1.0.3",
-    "redux": "^3.0.5"
+    "react": "^0.14.5",
+    "redux": "^3.0.5",
+    "validate.js": "^0.9.0"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.2.0",
@@ -45,7 +46,7 @@
     "file-loader": "^0.8.5",
     "gaze": "^0.5.2",
     "install": "^0.4.1",
-    "isomorphic-style-loader": "0.0.5",
+    "isomorphic-style-loader": "0.0.8",
     "json-loader": "^0.5.4",
     "ncp": "^2.0.0",
     "node-sass": "^3.4.2",
