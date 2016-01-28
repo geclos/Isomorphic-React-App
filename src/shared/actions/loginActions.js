@@ -1,7 +1,7 @@
 const LOGIN = "LOGIN";
 const LOGOUT = "LOGOUT";
 
-export function login() {
+export function logIn() {
   const payload = {
     type: LOGIN,
     date: Date.now()

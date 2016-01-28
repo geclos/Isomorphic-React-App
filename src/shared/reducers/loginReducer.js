@@ -5,7 +5,7 @@ const defaultState = Immutable.Map({
   isLoggedIn: false
 });
 
-const auth = (state = defaultState, action) => {
+const login = (state = defaultState, action) => {
   switch (action.type) {
     case "LOGIN":
       if (action.accessToken) {
@@ -24,4 +24,4 @@ const auth = (state = defaultState, action) => {
   }
 }
 
-export default auth
+export default login
