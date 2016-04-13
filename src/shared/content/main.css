@@ -389,13 +389,13 @@ a {
   transition: all 0.1s ease-in-out;
   text-decoration: none;
 }
-a:active, a:focus {
-  text-decoration: none;
-}
 a:hover {
   -webkit-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   color: #0BB6FF;
+  text-decoration: none;
+}
+a:active, a:focus {
   text-decoration: none;
 }
 ul, ul.list-inline {
@@ -487,33 +487,68 @@ small, .font_small {
   font-weight: 400;
   height: auto;
 }
-.btn.btn-outline {
-  background: transparent !important;
-  border-radius: 3px;
-  border-width: 1px !important;
-  box-shadow: none !important;
+.btn:hover, .btn:focus {
+  background-repeat: none;
+  background-image: none;
+  text-decoration: none;
+  outline: none;
 }
-.btn.btn-bg {
-  padding: 1rem 1.5rem;
-  text-transform: uppercase;
+.btn.btn-primary {
+  border-color: #0772A1;
+  background-color: #0BB6FF;
+  box-shadow: 0 1px 0 #0772A1;
 }
-.btn.btn-sm {
-  height: 40px;
+.btn.btn-primary:hover, .btn.btn-primary:focus {
+  border-color: #213D4C;
+  box-shadow: 0 1px 0 #213D4C;
 }
-.btn.btn-default {
-  color: #90AABB;
-  border-color: #90AABB;
-  background-color: #F6FCFE;
-  box-shadow: 0 1px 0 #90AABB;
+.btn.btn-primary.btn-disabled, .btn.btn-primary[disabled='disabled'], .btn.btn-primary[disabled='true'], .btn.btn-primary[disabled=''] {
+  border: none;
+  box-shadow: none;
+  pointer-events: none;
+  background-color: #8BBFD6;
 }
-.btn.btn-default.btn-disabled, .btn.btn-default[disabled='disabled'], .btn.btn-default[disabled='true'], .btn.btn-default[disabled=''] {
+.btn.btn-success {
+  border-color: #008E39;
+  background-color: #2ABC65;
+  box-shadow: 0 1px 0 #008E39;
+}
+.btn.btn-success:hover, .btn.btn-success:focus {
+  border-color: #00401A;
+  box-shadow: 0 1px 0 #00401A;
+}
+.btn.btn-success.btn-disabled, .btn.btn-success[disabled='disabled'], .btn.btn-success[disabled='true'], .btn.btn-success[disabled=''] {
   border: none;
   pointer-events: none;
-  background-color: #90AABB;
+  background-color: #00401A;
 }
-.btn.btn-default:hover, .btn.btn-default:focus {
-  border-color: darken(#90AABB, 10%);
-  box-shadow: 0 1px 0 darken(#90AABB, 10%);
+.btn.btn-warning {
+  border-color: #C66800;
+  background-color: #FFA239;
+  box-shadow: 0 1px 0 #C66800;
+}
+.btn.btn-warning:hover, .btn.btn-warning:focus {
+  border-color: #592F00;
+  box-shadow: 0 1px 0 #592F00;
+}
+.btn.btn-warning.btn-disabled, .btn.btn-warning[disabled='disabled'], .btn.btn-warning[disabled='true'], .btn.btn-warning[disabled=''] {
+  border: none;
+  pointer-events: none;
+  background-color: #592F00;
+}
+.btn.btn-alert {
+  border-color: #C62600;
+  background-color: #FF5F39;
+  box-shadow: 0 1px 0 #C62600;
+}
+.btn.btn-alert:hover, .btn.btn-alert:focus {
+  border-color: #591100;
+  box-shadow: 0 1px 0 #591100;
+}
+.btn.btn-alert.btn-disabled, .btn.btn-alert[disabled='disabled'], .btn.btn-alert[disabled='true'], .btn.btn-alert[disabled=''] {
+  border: none;
+  pointer-events: none;
+  background-color: #591100;
 }
 .btn.btn-link {
   border: none;
@@ -523,12 +558,6 @@ small, .font_small {
   min-width: initial;
   vertical-align: baseline;
 }
-.btn.btn-link.btn-disabled, .btn.btn-link[disabled='disabled'], .btn.btn-link[disabled='true'], .btn.btn-link[disabled=''] {
-  pointer-events: none;
-}
-.btn.btn-link:active, .btn.btn-link:visited {
-  color: #0772A1;
-}
 .btn.btn-link:focus, .btn.btn-link:hover {
   border: none;
   outline: none;
@@ -537,66 +566,37 @@ small, .font_small {
   text-decoration: none;
   color: #0BB6FF;
 }
-.btn.btn-alert {
-  border-color: #C62600;
-  background-color: #FF5F39;
-  box-shadow: 0 1px 0 #C62600;
+.btn.btn-link:active, .btn.btn-link:visited {
+  color: #0772A1;
 }
-.btn.btn-alert.btn-disabled, .btn.btn-alert[disabled='disabled'], .btn.btn-alert[disabled='true'], .btn.btn-alert[disabled=''] {
+.btn.btn-link.btn-disabled, .btn.btn-link[disabled='disabled'], .btn.btn-link[disabled='true'], .btn.btn-link[disabled=''] {
+  pointer-events: none;
+}
+.btn.btn-default {
+  color: #90AABB;
+  border-color: #90AABB;
+  background-color: #F6FCFE;
+  box-shadow: 0 1px 0 #90AABB;
+}
+.btn.btn-default:hover, .btn.btn-default:focus {
+  border-color: darken(#90AABB, 10%);
+  box-shadow: 0 1px 0 darken(#90AABB, 10%);
+}
+.btn.btn-default.btn-disabled, .btn.btn-default[disabled='disabled'], .btn.btn-default[disabled='true'], .btn.btn-default[disabled=''] {
   border: none;
   pointer-events: none;
-  background-color: #591100;
+  background-color: #90AABB;
 }
-.btn.btn-alert:hover, .btn.btn-alert:focus {
-  border-color: #591100;
-  box-shadow: 0 1px 0 #591100;
+.btn.btn-sm {
+  height: 40px;
 }
-.btn.btn-warning {
-  border-color: #C66800;
-  background-color: #FFA239;
-  box-shadow: 0 1px 0 #C66800;
+.btn.btn-bg {
+  padding: 1rem 1.5rem;
+  text-transform: uppercase;
 }
-.btn.btn-warning.btn-disabled, .btn.btn-warning[disabled='disabled'], .btn.btn-warning[disabled='true'], .btn.btn-warning[disabled=''] {
-  border: none;
-  pointer-events: none;
-  background-color: #592F00;
-}
-.btn.btn-warning:hover, .btn.btn-warning:focus {
-  border-color: #592F00;
-  box-shadow: 0 1px 0 #592F00;
-}
-.btn.btn-success {
-  border-color: #008E39;
-  background-color: #2ABC65;
-  box-shadow: 0 1px 0 #008E39;
-}
-.btn.btn-success.btn-disabled, .btn.btn-success[disabled='disabled'], .btn.btn-success[disabled='true'], .btn.btn-success[disabled=''] {
-  border: none;
-  pointer-events: none;
-  background-color: #00401A;
-}
-.btn.btn-success:hover, .btn.btn-success:focus {
-  border-color: #00401A;
-  box-shadow: 0 1px 0 #00401A;
-}
-.btn.btn-primary {
-  border-color: #0772A1;
-  background-color: #0BB6FF;
-  box-shadow: 0 1px 0 #0772A1;
-}
-.btn.btn-primary.btn-disabled, .btn.btn-primary[disabled='disabled'], .btn.btn-primary[disabled='true'], .btn.btn-primary[disabled=''] {
-  border: none;
-  box-shadow: none;
-  pointer-events: none;
-  background-color: #8BBFD6;
-}
-.btn.btn-primary:hover, .btn.btn-primary:focus {
-  border-color: #213D4C;
-  box-shadow: 0 1px 0 #213D4C;
-}
-.btn:hover, .btn:focus {
-  background-repeat: none;
-  background-image: none;
-  text-decoration: none;
-  outline: none;
+.btn.btn-outline {
+  background: transparent !important;
+  border-radius: 3px;
+  border-width: 1px !important;
+  box-shadow: none !important;
 }

@@ -7,15 +7,16 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import Browsersync from 'browser-sync';
 import webpack from 'webpack';
-import webpackMiddleware from 'webpack-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
+import webpackMiddleware from 'webpack-middleware';
+import Browsersync from 'browser-sync';
+
+import clean from './clean';
+import copy from './copy';
 import run from './run';
 import runServer from './runServer';
 import webpackConfig from './webpack.config';
-import clean from './clean';
-import copy from './copy';
 
 /**
  * Launches a development web server with "live reload" functionality -
